@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* First Section */
+        .section1 {
+            height: 100vh;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Second Section */
+        .section2 {
+            min-height: 100vh;
+            background-color: #ecf0f1;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .box {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .box1 {
+            background-image: url('./assets/2.jpg');
+        }
+
+        .box2 {
+            background-image: url('./assets/3.jpg');
+        }
+
+        .box3 {
+            background-image: url('./assets/4.png');
+        }
+
+        /* Third Section */
+        .section3 {
+            min-height: 100vh;
+            background-color: #2ecc71;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-img {
+            max-width: 100%;
+            height: auto;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Section -->
+    <section class="section1">
+        <div class="container">
+            <h1>Welcome Here</h1>
+        </div>
+    </section>
+
+    <!-- Second Section -->
+    <section class="section2">
+        <div class="box box1">
+            <h1>heading</h1>
+        </div>
+        <div class="box box2">
+            <h1>heading</h1>
+        </div>
+        <div class="box box3">
+            <h1>heading</h1>
+        </div>
+    </section>
+
+    <!-- Third Section -->
+    <section class="section3">
+        <div class="container">
+            <img src="./assets/5.jpg" alt="Footer Image" class="footer-img">
+        </div>
+    </section>
+
+    <!-- GSAP library -->
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger plugin -->
+    <script src="https://unpkg.com/gsap@3.9.0/dist/ScrollTrigger.min.js"></script>
+    <script>
+        // Register GSAP ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Create a GSAP timeline
+        const tl = gsap.timeline();
+        tl.to(".section2", { duration: 5, x: () => -(document.querySelector(".box3").offsetLeft) });
+
+        // Create a ScrollTrigger for the timeline
+        ScrollTrigger.create({
+            animation: tl,
+            trigger: ".section2",
+            start: "center center",
+            end: () => "+=" + document.querySelector(".section2").offsetWidth,
+            pin: true,
+            markers: true,
+            scrub: true
+        });
+    </script>
+</body>
+</html>

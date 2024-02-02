@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* First Section */
+        .section1 {
+            height: 100vh;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Second Section */
+        .section2 {
+           width: 100%;
+           min-height: 100vh;
+           background-color: #000;
+        }
+.overlay{
+    position: absolute;
+    width: 100%;height: 100vh;
+    left: 0;
+    background-image: linear-gradient(#000 5% , #fff0, #000);
+}
+.inner_container2{
+
+position: relative;
+display: flex;
+width: 100%;
+justify-content: space-between;
+height: 100vh;
+padding-inline: 5vw;
+}
+.content-text{
+    width: 50%;
+    height: 100%;
+    display: flex;align-items: flex-start;
+    justify-content: center;
+    color: #fff;
+    flex-direction: column;z-index: 9;
+}
+.gallery{
+    width: 23%;
+    height: 100vh;
+    overflow: hidden;
+}
+.inner--gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+    height: 200vh;
+}
+    /* Add the following CSS for the gallery items */
+    .gallery-item {
+            width: 100%;
+            height: 50vh;
+            background-size: cover;
+            border-radius: 10px;
+            background-position: center;
+        }
+
+        .gallery-item1 {
+            background-image: url('./assets/gl1.jpg');
+        }
+
+        .gallery-item2 {
+            background-image: url('./assets/gl2.jpg');
+        }
+
+        .gallery-item3 {
+            background-image: url('./assets/gl3.jpg');
+        }
+
+        /* Add more classes for the remaining gallery items */
+
+        .gallery-item4 {
+            background-image: url('./assets/gl4.jpg');
+        }
+
+        .gallery-item5 {
+            background-image: url('./assets/gl5.jpg');
+        }
+
+        .gallery-item6 {
+            background-image: url('./assets/gl6.jpg');
+        }
+
+        .gallery-item7 {
+            background-image: url('./assets/gl7.jpg');
+        }
+
+        .gallery-item8 {
+            background-image: url('./assets/gl8.jpg');
+        }
+
+        .gallery-item9 {
+            background-image: url('./assets/gl9.jpg');
+        }
+
+        .gallery-item10 {
+            background-image: url('./assets/gl10.jpg');
+        }
+
+        .gallery-item11 {
+            background-image: url('./assets/gl11.jpg');
+        }
+
+        .gallery-item12 {
+            background-image: url('./assets/gl12.jpg');
+        }
+#gallery1{
+    margin-top: 20vh;
+}
+#gallery2{
+    margin-top: -100vh;
+}
+        /* Third Section */
+        .section3 {
+            min-height: 100vh;
+            background-color: #2ecc71;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-img {
+            max-width: 100%;
+            height: auto;
+            min-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Section -->
+    <section class="section1">
+        <div class="container">
+            <h1>Welcome Here</h1>
+        </div>
+    </section>
+
+  <!-- Second Section -->
+  <section class="section2">
+    <div class="inner_container2">
+        <div class="overlay"></div>
+        <div class="content-text">
+            <div class="box">
+                <h2>Title 1</h2>
+                <p>Description 1</p>
+            </div>
+        </div>
+        <div class="gallery1 gallery">
+            <div class="inner--gallery" id="gallery1">
+                <div class="gallery-item gallery-item1"></div>
+                <div class="gallery-item gallery-item2"></div>
+                <div class="gallery-item gallery-item3"></div>
+                <div class="gallery-item gallery-item4"></div>
+                <div class="gallery-item gallery-item4"></div>
+                <div class="gallery-item gallery-item4"></div>
+                <div class="gallery-item gallery-item5"></div>
+                <div class="gallery-item gallery-item6"></div>
+            </div>
+        </div>
+    
+        <div class="gallery2 gallery">
+            <div class="inner--gallery" id="gallery2">
+                <div class="gallery-item gallery-item7"></div>
+                <div class="gallery-item gallery-item8"></div>
+                <div class="gallery-item gallery-item8"></div>
+                <div class="gallery-item gallery-item8"></div>
+                <div class="gallery-item gallery-item9"></div>
+                <div class="gallery-item gallery-item10"></div>
+                <div class="gallery-item gallery-item11"></div>
+                <div class="gallery-item gallery-item12"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Third Section -->
+    <section class="section3">
+        <div class="container">
+            <img src="./assets/5.jpg" alt="Footer Image" class="footer-img">
+        </div>
+    </section>
+
+    <!-- GSAP library -->
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger plugin -->
+    <script src="https://unpkg.com/gsap@3.9.0/dist/ScrollTrigger.min.js"></script>
+    <script>
+     
+          // Register GSAP ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+// Create a GSAP timeline
+const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section2",
+        start: "center center",
+        end: "150% 50%",
+        pin: true,
+        scrub: 1.4,
+        markers: true
+    }
+});
+
+
+tl.to(["#gallery1", "#gallery2"], { marginTop: (index, target) => (index === 0 ? "-120vh" : "20vh") });
+    </script>
+</body>
+</html>

@@ -19,7 +19,6 @@
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
     <script>
         let scene, camera, renderer, hlight, car, mixer;
-
         function init() {
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0xdddddd);
@@ -60,6 +59,7 @@
                 render();
             });
         }
+
         function render() {
             requestAnimationFrame(render);
             // Update the animation mixer
@@ -74,6 +74,7 @@
             camera.lookAt(scene.position);
             renderer.render(scene, camera);
         }
+
         // Call the init function to set up the scene
         init();
     </script>
